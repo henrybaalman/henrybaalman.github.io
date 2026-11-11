@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Henry Baalman — Mechanical Engineering Portfolio</title>
+<meta name="description" content="Mechanical engineering portfolio of Henry Baalman — UCSB Rocket Club engine test stand and thrust vector control, COMSOL topology optimization, and precision machining.">
+<style>
+  :root{
+    --bg:#0e1116; --panel:#161b22; --panel-2:#1c232c; --line:#2a3340;
+    --text:#e6edf3; --muted:#9aa7b4; --accent:#ff6b35; --accent-soft:rgba(255,107,53,.12);
+    --max:1060px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
+
+  /* nav */
+  nav{position:sticky; top:0; z-index:20; background:rgba(14,17,22,.86); backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; height:60px}
+  .brand{font-weight:700; letter-spacing:.01em; color:var(--text)}
+  .brand:hover{text-decoration:none}
+  .navlinks{display:flex; gap:22px; flex-wrap:wrap}
+  .navlinks a{color:var(--muted); font-size:14px; letter-spacing:.04em; text-transform:uppercase}
+  .navlinks a:hover{color:var(--text); text-decoration:none}
+
+  /* hero */
+  header.hero{padding:88px 0 64px; border-bottom:1px solid var(--line)}
+  .eyebrow{color:var(--accent); font-size:13px; letter-spacing:.18em; text-transform:uppercase; font-weight:600; margin:0 0 14px}
+  h1{font-size:clamp(34px,5.2vw,52px); line-height:1.1; margin:0 0 18px; letter-spacing:-.02em}
+  .lede{font-size:clamp(17px,2.2vw,20px); color:var(--muted); max-width:62ch; margin:0 0 26px}
+  .meta{display:flex; flex-wrap:wrap; gap:10px}
+  .tag{font-size:13px; color:var(--muted); background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:5px 13px}
+
+  /* sections */
+  section{padding:72px 0; border-bottom:1px solid var(--line)}
+  .sec-label{color:var(--accent); font-size:12px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; margin:0 0 10px}
+  h2{font-size:clamp(25px,3.4vw,33px); line-height:1.2; margin:0 0 6px; letter-spacing:-.01em}
+  .sub{color:var(--muted); font-size:15px; margin:0 0 26px}
+
+  .project{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.85fr); gap:40px; align-items:start}
+  .project .figure{position:sticky; top:84px}
+  .figure img{width:100%; display:block; border-radius:10px; border:1px solid var(--line); background:#fff}
+  .caption{color:var(--muted); font-size:13px; margin-top:10px}
+
+  h3{font-size:17px; margin:26px 0 8px; letter-spacing:.01em}
+  h3:first-of-type{margin-top:0}
+  p{margin:0 0 14px}
+  ul{margin:0 0 14px; padding-left:20px}
+  li{margin-bottom:7px}
+  strong{color:#fff}
+
+  .specs{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:22px 0}
+  .specs div{background:var(--panel); padding:14px 16px}
+  .specs dt{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0 0 4px}
+  .specs dd{margin:0; font-size:19px; font-weight:650; color:#fff}
+
+  .callout{background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:14px 18px; margin:20px 0}
+  .callout p{margin:0; font-size:15px}
+
+  .btn{display:inline-block; margin-top:8px; font-size:14px; font-weight:600; color:var(--text);
+       background:var(--panel-2); border:1px solid var(--line); border-radius:8px; padding:10px 16px}
+  .btn:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
+
+  footer{padding:56px 0 72px}
+  footer h2{margin-bottom:12px}
+  .contact{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
+
+  @media (max-width:800px){
+    .project{grid-template-columns:1fr; gap:24px}
+    .project .figure{position:static; order:-1}
+    section{padding:56px 0}
+    header.hero{padding:60px 0 48px}
+    .navlinks{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Henry Baalman</a>
+    <div class="navlinks">
+      <a href="#test-stand">Test Stand</a>
+      <a href="#tvc">TVC</a>
+      <a href="#comsol">COMSOL</a>
+      <a href="#air-motor">Air Motor</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Mechanical Engineering · UC Santa Barbara</p>
+    <h1>Hardware that gets built, tested,<br>and redesigned.</h1>
+    <p class="lede">I'm a senior mechanical engineering student at UCSB graduating in June 2027, focused on aerospace hardware and manufacturing. Most of what I work on starts as a CAD model and ends on a test stand — which is usually where the interesting problems show up.</p>
+    <div class="meta">
+      <span class="tag">UCSB Rocket Club</span>
+      <span class="tag">Propulsion &amp; Structures</span>
+      <span class="tag">COMSOL / ANSYS FEA</span>
+      <span class="tag">Manual &amp; CNC Machining</span>
+    </div>
+  </div>
+</header>
+
+<section id="test-stand">
+  <div class="wrap">
+    <p class="sec-label">01 / UCSB Rocket Club</p>
+    <h2>Liquid Engine Test Stand</h2>
+    <p class="sub">Design, fabrication, and post-build review of a static fire stand</p>
+
+    <div class="project">
+      <div class="body">
+        <h3>The goal</h3>
+        <p>Build a static test stand capable of holding both propellant tanks and a liquid engine through hot fire, with a load cell in the thrust path so the club could finally measure real engine performance instead of inferring it.</p>
+
+        <h3>What I did</h3>
+        <ul>
+          <li>Completed the full CAD package — tank brackets, engine plate, plumbing routing, and the load cell hinge.</li>
+          <li>Cut, welded, and assembled the structure to print, then seated both tanks in their brackets.</li>
+          <li>Ran the post-build review that drove the next design iteration.</li>
+        </ul>
+
+        <h3>What went wrong — and why it matters</h3>
+        <p>The stand got built, but three things didn't survive contact with the shop floor:</p>
+        <ul>
+          <li><strong>Weld tolerancing.</strong> Bracket welds weren't accounted for in the model, so the tanks wouldn't drop cleanly into their mounts. Weld shrinkage and bead buildup are now something I dimension for, not something I discover during assembly.</li>
+          <li><strong>No load cell.</strong> It never got purchased, so a solid support went in its place. The stand holds the engine fine — but it produces no thrust data, which was the whole point.</li>
+          <li><strong>Plumbing access.</strong> Putting the tank in line with the blast plate, with little room beneath it, made the fittings genuinely hard to reach.</li>
+        </ul>
+
+        <div class="callout">
+          <p>The real lesson wasn't the welds. It was that the instrumentation got treated as an add-on instead of a requirement — so the one subsystem that justified the build is the one that got cut.</p>
+        </div>
+
+        <h3>Where it goes next</h3>
+        <p>I'm driving a redesign into a <strong>modular</strong> stand: the load cell designed into the thrust path from the start with a clear integration path for the rest of the sensors, the structure spaced out to open up plumbing access and tank mounting, and a mounting scheme that accepts any tank or engine configuration the club builds next.</p>
+
+        <a class="btn" href="assets/test-stand-build-review.pdf">Read the build review (PDF)</a>
+      </div>
+
+      <figure class="figure" style="margin:0">
+        <img src="assets/thumb-test-stand.jpg" alt="Engine test stand as built, with a solid support in place of the load cell">
+        <figcaption class="caption">As built — a solid support occupies the position reserved for the load cell.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="tvc">
+  <div class="wrap">
+    <p class="sec-label">02 / UCSB Rocket Club — Project HALO</p>
+    <h2>Thrust Vector Control Gimbal</h2>
+    <p class="sub">Gimbal redesign, actuator selection, and FEA verification for a vertically-landing vehicle</p>
+
+    <div class="project">
+      <div class="body">
+        <h3>The subsystem</h3>
+        <p>HALO is the club's vertically-landing rocket. The TVC subsystem keeps the vehicle vertical through takeoff, flight, and landing by counteracting rotational impulses — a gimbaled thrust chamber driven by a pair of linear actuators, which also has to carry the full thrust load of the engine.</p>
+
+        <dl class="specs">
+          <div><dt>Thrust load</dt><dd>3 kN</dd></div>
+          <div><dt>Gimbal rate</dt><dd>30&deg;/s</dd></div>
+          <div><dt>Gimbal accel</dt><dd>40 rad/s&sup2;</dd></div>
+          <div><dt>Actuator force</dt><dd>~140 lbf</dd></div>
+        </dl>
+
+        <h3>Gimbal redesign</h3>
+        <p>The new gimbal shortens the lever arms, which raises loading capacity while using less material — less stock to buy and less to machine. Fillets were added for manufacturability, and tightening up the wasted space removed the need for spacers elsewhere in the assembly.</p>
+        <p>The yoke and ring are joined by a steel shoulder screw with a distorted-thread flange locknut for vibration resistance. A needle-roller bearing takes the friction out of the ring–yoke interface — chosen over a ball bearing for its radial load capacity — retained by snap rings on the inner diameter and press fit on the outer.</p>
+
+        <h3>Re-examining the actuators</h3>
+        <p>The previous iteration specified a minimum actuator force of 400 lbf, which limited the field to slow, heavy, expensive units. Reworking the problem showed that number was a substantial overestimate; the real requirement is <strong>~140 lbf at 2 in/s minimum</strong>. That reopened the trade space, and the selection landed on a Festo electric linear actuator (1000 N, 50 mm stroke, 90 mm/s, 2.64 kg) — still the most expensive line item on the subsystem, and currently the subject of a sponsorship request.</p>
+
+        <h3>Cross-coupling</h3>
+        <p>Mounting the actuators at their optimal speed and force geometry coupled them to each other, which both raises the force each one sees and demands a far more complex control scheme. Aligning the actuator tailstock mounts with the gimbal's center of rotation decoupled them.</p>
+
+        <h3>Verification</h3>
+        <p>Every major load-bearing component went through FEA in ANSYS under engine loading. Both yoke pieces pass comfortably against AL 7050 and AL 7075 allowables. The shoulder screw concentrates stress at its required cuts — not enough to fail it, but enough to drive the decision to use alloy steel screws rather than stainless. Vibration and thermal flux are not yet in the model; they're covered for now by conservative load estimates and a generous factor of safety, and are the first thing I want in the next round.</p>
+
+        <a class="btn" href="assets/halo-design-review.pdf">Read the HALO design review (PDF)</a>
+      </div>
+
+      <figure class="figure" style="margin:0">
+        <img src="assets/thumb-tvc.jpg" alt="CAD render of the redesigned TVC gimbal ring and yoke assembly">
+        <figcaption class="caption">Redesigned gimbal — shorter lever arms, filleted for manufacturability.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="comsol">
+  <div class="wrap">
+    <p class="sec-label">03 / Computational Analysis</p>
+    <h2>Topology Optimization of a Bicycle Frame</h2>
+    <p class="sub">COMSOL Multiphysics · 2D and 3D SIMP optimization across four riding load cases</p>
+
+    <div class="project">
+      <div class="body">
+        <h3>The problem</h3>
+        <p>Start from a solid rectangular block of aluminum and let the solver decide what a bicycle frame should look like. The objective: minimize internal strain energy subject to a hard cap on how much mass is available to build the structure.</p>
+
+        <dl class="specs">
+          <div><dt>Starting block</dt><dd>50.7 kg</dd></div>
+          <div><dt>Mass budget</dt><dd>30%</dd></div>
+          <div><dt>Material</dt><dd>Al 6063</dd></div>
+          <div><dt>Load cases</dt><dd>4</dd></div>
+        </dl>
+
+        <h3>Method</h3>
+        <ul>
+          <li><strong>SIMP</strong> (Solid Isotropic Material with Penalization) assigns each mesh element a density from 0 (void) to 1 (solid), letting the solver carve away material it finds unnecessary.</li>
+          <li><strong>MMA</strong> (Method of Moving Asymptotes) handles the large variable count of the static load problem.</li>
+          <li>COMSOL's default penalization factor of 3 proved overly aggressive — it killed intermediate densities early and produced uninformative blobs. Dropping it to <strong>2</strong> yielded structures with enough nuance to actually analyze.</li>
+          <li>Minimizing mass directly, with constraints on strain or displacement, was unstable and produced solutions over-fit to the specific constrained points. Inverting it — minimize strain energy with a mass fraction cap — was both numerically stable and physically better behaved.</li>
+        </ul>
+
+        <h3>Boundary and loading conditions</h3>
+        <p>A fixed pin at the lower left stands in for the clamped rear wheel; a horizontal roller at the upper right represents the head tube. Four load cases spanned realistic riding: flat cruising (1000 N seat / 300 N crank), fast pedaling (700 N / 600 N), an intense uphill sprint, and hard braking.</p>
+
+        <h3>Results</h3>
+        <p>Under flat cruising the optimizer independently converged on a strong rear triangle feeding load straight into the fixed support — essentially the front-and-rear-triangle geometry of production bike frames, arrived at from a rectangle. Max nominal stress was ~0.55 MPa against a 214 MPa compressive yield, and seat deflection dropped to <strong>0.0053 mm, roughly 5&times; less than the unoptimized block</strong> at the same mass.</p>
+        <p>Shifting load toward the crank in the fast-pedaling case produced a markedly more symmetric frame with a stiffer lower structure — the solver responding exactly as intuition would predict. Across all cases the highest stresses clustered at the seat post junction and the rear triangle interface: in a real frame, welded joints, and the places I'd expect trouble first.</p>
+
+        <div class="callout">
+          <p>The result I care about isn't the geometry — it's that a solver with no knowledge of bicycles rediscovered the double-triangle frame from load paths alone.</p>
+        </div>
+
+        <a class="btn" href="assets/comsol-bike-frame-topology-optimization.pdf">Read the full report (PDF)</a>
+      </div>
+
+      <figure class="figure" style="margin:0">
+        <img src="assets/thumb-comsol.jpg" alt="COMSOL topology optimization result showing the converged bicycle frame geometry">
+        <figcaption class="caption">Flat cruising load case — converged material distribution from a solid rectangular domain.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="air-motor">
+  <div class="wrap">
+    <p class="sec-label">04 / UCSB ME 12S</p>
+    <h2>Machined Air Motor</h2>
+    <p class="sub">Manual mill and lathe work to a tolerance stack that has to actually run</p>
+
+    <div class="project">
+      <div class="body">
+        <h3>The build</h3>
+        <p>ME 12S is UCSB's hands-on manufacturing course, and the air motor is its final piece: a working reciprocating engine driven by shop air, made from raw aluminum and brass stock on manual machines. Mine is pictured here on its engraved aluminum base.</p>
+
+        <h3>Operations</h3>
+        <ul>
+          <li>Turned the flywheel, crankshaft, and piston assembly on the lathe.</li>
+          <li>Milled the brass cylinder block, aluminum upright, and base plate; drilled and reamed the bearing bores.</li>
+          <li>Faced and engraved the base plate, then assembled and timed the valve against the crank throw.</li>
+        </ul>
+
+        <h3>Why it's here</h3>
+        <p>Nothing on this part is forgiving. The motor only spins if the bore-to-piston clearance, the crank throw, and the valve timing all land inside tolerance at the same time — the inlet port has to open and close at the right crank angle or it stalls. It's the clearest demonstration I have that I can hold a tolerance on a manual machine and build something that works, not just something that measures correctly.</p>
+
+        <div class="callout">
+          <p>Swap this section's text for your own account of the build — operations you actually ran, the tolerances you held, and anything that went wrong and got fixed. That detail is what makes a machining project credible to a reader.</p>
+        </div>
+      </div>
+
+      <figure class="figure" style="margin:0">
+        <img src="assets/me12s-air-motor.jpg" alt="Finished ME 12S air motor machined from aluminum and brass on an engraved UCSB base plate">
+        <figcaption class="caption">Finished air motor — aluminum and brass, UCSB Mechanical Engineering base plate.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="sec-label">Contact</p>
+    <h2>Get in touch</h2>
+    <p class="lede" style="margin-bottom:0">Graduating June 2027 and looking for aerospace hardware and manufacturing roles.</p>
+    <div class="contact">
+      <a class="btn" href="mailto:YOUR-EMAIL-HERE">Email</a>
+      <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN">LinkedIn</a>
+      <a class="btn" href="https://github.com/YOUR-GITHUB">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
