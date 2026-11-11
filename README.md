@@ -2,7 +2,7 @@
 
 Mechanical engineering portfolio, published with GitHub Pages.
 
-**Live site:** https://YOUR-GITHUB.github.io/REPO-NAME/
+**Live site:** https://henrybaalman.github.io/
 
 ## Projects
 
